@@ -1,0 +1,73 @@
+# Licencia - BadVPN
+
+> **Copyright (c) 2009, Ambroz Bizjak <ambrop7@gmail.com>**  
+> Todos los derechos reservados.
+
+---
+
+## 📜 Términos de la licencia
+
+La redistribución y el uso en formas de código fuente y binario, con o sin modificaciones, están permitidos siempre que se cumplan las siguientes condiciones:
+
+<!-- Comentario: Esta cláusula permite utilizar y modificar el código, siempre que respetes los puntos siguientes. -->
+
+1. Las **redistribuciones del código fuente** deben conservar:
+   - El aviso de copyright original
+   - Esta lista de condiciones
+   - La siguiente exención de responsabilidad
+
+<!-- Comentario: Si compartes el código fuente, debes incluir esta licencia tal cual. -->
+
+2. Las **redistribuciones en forma binaria** deben reproducir:
+   - El aviso de copyright
+   - Esta lista de condiciones
+   - La exención de responsabilidad
+
+   ...en la **documentación** y/o en otros materiales que acompañen la distribución.
+
+<!-- Comentario: Si distribuyes un binario (ejecutable), debes mantener esta licencia visible para el usuario. -->
+
+3. **Ni el nombre del autor** ni los nombres de sus colaboradores pueden ser utilizados para respaldar o promocionar productos derivados de este software sin permiso previo y por escrito.
+
+<!-- Comentario: No se puede usar el nombre del autor o colaboradores para marketing sin su aprobación explícita. -->
+
+---
+
+## ⚠️ Exención de responsabilidad
+
+> ESTE SOFTWARE SE PROPORCIONA POR LOS TITULARES DEL COPYRIGHT Y LOS COLABORADORES "TAL CUAL" Y SE RECHAZAN TODAS LAS GARANTÍAS EXPRESAS O IMPLÍCITAS, INCLUYENDO, PERO NO LIMITADAS A, LAS GARANTÍAS IMPLÍCITAS DE COMERCIABILIDAD Y APTITUD PARA UN PROPÓSITO PARTICULAR.
+
+<!-- Comentario: El software se entrega sin ninguna garantía, ni de funcionamiento ni de utilidad. -->
+
+EN NINGÚN CASO EL AUTOR SERÁ RESPONSABLE DE NINGÚN DAÑO:
+- DIRECTO,
+- INDIRECTO,
+- INCIDENTAL,
+- ESPECIAL,
+- EJEMPLAR,
+- O CONSECUENTE
+
+(INCLUYENDO, PERO NO LIMITADO A:  
+ADQUISICIÓN DE BIENES O SERVICIOS SUSTITUTOS;  
+PÉRDIDA DE USO, DATOS O BENEFICIOS;  
+O INTERRUPCIÓN DEL NEGOCIO)
+
+CAUSADO DE CUALQUIER MANERA Y BAJO CUALQUIER TEORÍA DE RESPONSABILIDAD, YA SEA POR:
+- CONTRATO,
+- RESPONSABILIDAD ESTRICTA,
+- O AGRAVIO (INCLUYENDO NEGLIGENCIA U OTRA)
+
+QUE SURJA DE CUALQUIER FORMA DEL USO DE ESTE SOFTWARE, INCLUSO SI SE HA ADVERTIDO DE LA POSIBILIDAD DE TALES DAÑOS.
+
+<!-- Comentario: No puedes responsabilizar al autor bajo ninguna circunstancia por daños o pérdidas. -->
+
+---
+
+## ✅ Resumen
+
+Esta es una **licencia BSD de 3 cláusulas**, que permite:
+- Usar el software
+- Modificarlo
+- Redistribuirlo (en fuente o binario)
+
+...mientras respetes las condiciones. Sin embargo, **no se ofrece ninguna garantía**.

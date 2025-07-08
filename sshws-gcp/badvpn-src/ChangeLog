@@ -1,0 +1,131 @@
+# ChangeLog
+
+Este archivo contiene el registro de cambios del proyecto con mejoras de formato y comentarios explicativos donde es posible.
+
+---
+
+## Version 1.999.130
+
+- Arreglo para operación de TUN/TAP en el kernel de Linux 3.19.  
+  *Referencia:* https://bugzilla.kernel.org/show_bug.cgi?id=96381
+- **ncd / modules/daemon**: Se implementa el tiempo de reintento personalizado.
+- **ncd / modules/daemon**: Se mejora el mensaje de log de "daemon crashed" incluyendo el contexto del módulo.
+- **ncd / modules/arithmetic**: En vez de fallar de inmediato ante errores aritméticos, ahora se expone su ocurrencia.
+- **ncd**: Se añade la función `clock_get_ms`.
+- **ncd**: Se implementa una función de checksum simple usada por el protocolo Bluetooth de Sphereo.
+- **ncd / socket**: Soporte para abrir puertos seriales.
+- **ncd**: Se implementan `struct_decode` y `struct_encode`.
+- **ncd / sys.evdev**: Se proporcionan cadenas de código de evento para `EV_SYN` si están disponibles.
+- **ncd / modules/blocker**: Se implementa el argumento `initial_state` y se expone el estado "up" como variable.
+- **ncd**: Se implementan los comandos `Do-Interrupt` y `Do`.
+- **ncd**: Evaluación perezosa (`lazy evaluation`) en cláusulas `If`.
+- **ncd**: Nueva función `ifel` que soporta `If` perezoso.
+- **ncd**: Optimización de `value::append()`.
+- **ncd**: Implementación de `backtrack_point::rgo`.
+- **ncd / modules/explode**: Se evita copiar cadenas externas, además se implementa búsqueda de cadenas compilada.
+- **ncd / modules/parse**: Implementación de `parse_hex_number`.
+- **ncd**: Azúcar sintáctico para `^a.b.c` que equivale a `{"a", "b", "c"}`.
+- **ncd**: Corrección de errores con expectativas incorrectas sobre cadenas terminadas en nulo.
+- **ncd**: Infraestructura para referencias de objetos y el módulo `objref`.
+- **ncd**: Eliminación del tipo `ComposedString` y del módulo `buffer`.
+- **ncd**: Azúcar sintáctico para `Block` usando `inline_code()`.
+- **ncd / modules/call**: Soporte para llamadas `inline_code` y corrección en `call_with_caller_target deinit`.
+- **ncd / modules/socket**: Corrección en el orden de finalización respecto al cierre de sockets y se añade variable `eof` en `read()`.
+- **ncd**: Corrección de fallo por afirmación en `file_write()`.
+- **ncd**: Implementación del azúcar sintáctico `@something = "something"`.
+- **ncd**: Corrección de crash al hacer `num_multiply(..., "0")`.
+- **ncd**: Infraestructura y muchas funciones integradas nuevas (`built-in`).
+- **ncd**: Corrección de errores con afirmaciones en valores tipo `map`.
+
+## Version 1.999.129
+
+- **ncd / modules/file_open**: Corrección de un error tipográfico en una afirmación.
+- **server**: Corrección por omisión de llamada a `BSSLConnection_ReleaseBuffers()`.
+- **ncd**: Búsqueda de programas en `PATH` en lugar de rutas codificadas.
+- Añadido el script `compile-udpgw.sh`.
+- **ncd / modules/net_dns**: Nueva función `net.dns.resolvconf()`.
+
+## Version 1.999.128
+
+- **tun2socks**: Nueva opción `--append-source-to-username`.
+- **tun2socks**: Soporte para IPv6 y actualización a versión reciente de lwIP.
+- **tun2socks**: Corrección de bugs y crashes.
+- **tun2socks / udpgw**: Reenvío transparente de DNS (*excepto Windows*).
+- **ncd**: Soporte preliminar para carga dinámica de comandos.
+
+## Version 1.999.127
+
+- **client/server**: Soporte experimental para SSL en hilos de trabajo.
+- **ncd / modules/value**: `value::append()` para listas.
+- **ncd / modules/net_iptables**: Soporte para `append` e `insert`.
+- **ncd / modules/sys_start_process**: Nuevas opciones `username`, `term_on_deinit`, `deinit_kill_time`.
+- **ncd / modules/sys_request_server**: Implementación de `_caller`.
+- **ncd / modules**: Nueva función `getenv()`.
+- **ncd / modules/daemon**: Nuevas opciones incluyendo `username`.
+- **ncd / modules/runonce**: Nuevas opciones en formato mapa, soporte para `username`.
+- **ncd / modules**: Nuevo módulo `buffer()`.
+- **ncd**: Nueva representación interna `ComposedString`.
+- Correcciones de aliasing estricto.
+- **ncd / modules/sleep**: Cadenas vacías significan "no dormir".
+- **ncd / modules**: Comandos de logging `log()` con BLog.
+
+## Version 1.999.126
+
+- Igual mejora en `sleep` que en la 1.999.127.
+- Módulo de logging con BLog.
+- Nuevas directivas `include` y `include_guard`.
+- Módulo `call2()` reemplazado por `call_with_caller_target()`.
+- Nuevo `sys.start_process()` para procesos externos.
+- **tun2socks**: Autenticación SOCKS.
+- Prevención de overflow en profundidad de valores.
+- Nuevas funciones y módulos (`depend_scope`, `backtrack`, `I/O`, IPv6).
+- Portado a Emscripten/Javascript.
+- Mejoras generales de rendimiento y compatibilidad con MSVC.
+
+## Version 1.999.123
+
+- Mejoras de rendimiento.
+- Nuevas funciones `replace_this()`, `reset()`, `replace_undo()`.
+- Soporte MSVC.
+- Nuevas cláusulas y funciones (`foreach`, `spawn::join()`).
+- Nuevas llamadas del sistema y correcciones.
+
+## Version 1.999.121
+
+- Mejoras de manejo de errores.
+- Corrección en `sys.evdev()`.
+- Implementación de `If..elif..else`.
+- Soporte `wpa_supplicant >= 1.0`.
+
+## Version 1.999.115
+
+- Muchas mejoras en NCD.
+- Nuevos comandos: `call()`, `alias()`, `foreach()`, `choose()`.
+
+## Version 1.999.113
+
+- Redirección de streams estándar en hijos a `/dev/null`.
+- Sistema de build mejorado con `-DBUILD_NOTHING_BY_DEFAULT`.
+- Mejoras en `net.backend.wpa_supplicant()`.
+
+## Version 1.999.111
+
+- Protocolo mejorado para permitir SSL entre peers.
+- **Advertencia:** `--allow-peer-talk-without-ssl` reduce seguridad.
+
+## Version 1.999.107
+
+- Soporte para IOCP en Windows. Eliminación de límite de conexiones.
+
+## Version 1.999.105.2
+
+- Arreglo de afirmación fallida en `tun2socks`.
+
+## Version 1.999.101.3
+
+- Arreglo para transporte UDP en Windows 7.
+
+## Version 1.999.101
+
+- Corrección en protocolo para versiones ≤1.999.100.3.
+- *Incompatibilidad con versiones antiguas si se usa cliente nuevo*.

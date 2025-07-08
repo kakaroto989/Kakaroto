@@ -1,0 +1,65 @@
+#!/bin/bash
+
+set -euo pipefail  # Más seguro: falla con variables no definidas y errores en pipes
+
+PHP_CMD=(php)
+FLEX_CMD=(flex)
+BISON_CMD=(bison)
+
+OUT_DIR="generated"
+
+mkdir -p "$OUT_DIR"
+
+bproto() {
+    local input="$1"
+    local name="$2"
+    "${PHP_CMD[@]}" bproto_generator/bproto.php \
+        --input-file "$input" \
+        --output-dir "$OUT_DIR" \
+        --name "bproto_${name}"
+}
+
+do_flex() {
+    local input="$1"
+    local name="$2"
+    local out_c="${OUT_DIR}/flex_${name}.c"
+    local out_h="${OUT_DIR}/flex_${name}.h"
+
+    "${FLEX_CMD[@]}" -o "$out_c" --header-file="$out_h" "$input"
+    "${PHP_CMD[@]}" fix_flex.php "$out_c"
+    "${PHP_CMD[@]}" fix_flex.php "$out_h"
+}
+
+do_bison() {
+    local input="$1"
+    local name="$2"
+    "${BISON_CMD[@]}" -d -o "${OUT_DIR}/bison_${name}.c" "$input"
+}
+
+do_lemon() {
+    local input="$1"
+    local name
+    name="$(basename "$input")"
+
+    (
+        cd "$OUT_DIR"
+        rm -f "$name"
+        cp "../$input" "$name"
+        ../lemon/lemon "$name"
+    )
+}
+
+# Ejecutar los pasos
+bproto tests/bproto_test.bproto bproto_test
+bproto protocol/msgproto.bproto msgproto
+bproto protocol/addr.bproto addr
+
+do_flex predicate/BPredicate.l BPredicate
+do_bison predicate/BPredicate.y BPredicate
+
+"${PHP_CMD[@]}" blog_generator/blog.php \
+    --input-file blog_channels.txt \
+    --output-dir "$OUT_DIR"
+
+do_lemon ncd/NCDConfigParser_parse.y
+do_lemon ncd/NCDValParser_parse.y

@@ -14,10 +14,10 @@ WORKDIR /workdir
 COPY badvpn-src/ ./badvpn-src
 
 # ⚙️ Compila BadVPN con soporte TUN2SOCKS y UDPGW
-WORKDIR /workdir/badvpn-src
-RUN mkdir -p build
-WORKDIR /workdir/badvpn-src/build
-RUN cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_TUN2SOCKS=1 -DBUILD_UDPGW=1 -DCMAKE_POLICY VERSION_MINIMUM=3.5 && \
+#WORKDIR /workdir/badvpn-src
+#RUN mkdir -p build
+#WORKDIR /workdir/badvpn-src/build
+#RUN cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_TUN2SOCKS=1 -DBUILD_UDPGW=1 -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && \
     make -j2 install
 #RUN cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_TUN2SOCKS=1 -DBUILD_UDPGW=1 -DCMAKE_BUILD_TYPE=Release && \
 #    make -j2 install

@@ -8,10 +8,10 @@ RUN apk update && apk add --no-cache \
     gcc g++ cmake make linux-headers
 
 # 📁 Directorio de trabajo
-WORKDIR /workdir
+#WORKDIR /workdir
 
 # 👉 Copia solo los archivos necesarios para compilar
-COPY badvpn-src/ ./badvpn-src
+#COPY badvpn-src/ ./badvpn-src
 
 # ⚙️ Compila BadVPN con soporte TUN2SOCKS y UDPGW
 #WORKDIR /workdir/badvpn-src
